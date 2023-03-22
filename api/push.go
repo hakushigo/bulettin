@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
+	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
@@ -63,16 +64,10 @@ func Push(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
-	type doctemplate struct {
-		title        string
-		descriptive  string
-		thumbnailuri string
-	}
-
-	_, err = mclient.Database(database).Collection(collection).InsertOne(ctx, doctemplate{
-		title:        title,
-		descriptive:  content,
-		thumbnailuri: "https://bulletin.pool.owo.my.id/" + prefix + imgthumbhead.Filename,
+	_, err = mclient.Database(database).Collection(collection).InsertOne(ctx, bson.M{
+		"title":        title,
+		"descriptive":  content,
+		"thumbnailuri": "https://bulletin.pool.owo.my.id/" + prefix + imgthumbhead.Filename,
 	})
 
 	if err != nil {
