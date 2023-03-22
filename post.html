@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <title></title>
+  <link href="post_style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main d-flex justify-content-center align-items-center">
+    <div class="card col-md-6 col-lg-3 col-sm-9 m-3 shadow-lg">
+      <div class="p-3">
+        <h1 class="h3"><b>
+          Participate <br>
+          In Headcrab <br>
+          File bulletin&trade; <br>
+        </b>
+        </h1>
+      </div>
+      <div class="card-body">
+        <form action="api/push" method="post" enctype="multipart/form-data">
+          <div class="input-group my-2">
+            <input class="form-control" name="thumbnail" type="file">
+            <span class="input-group-text" id="thumbnail">
+              thumbnail
+            </span>
+          </div>
+          <div class="input-group my-2">
+            <input class="form-control" name="title" placeholder="maybe like 'my memories'">
+          </div>
+          <div class="input-group my-2">
+            <textarea class="form-control" name="content" placeholder="describe your story here!"></textarea>
+          </div>
+          <div class="input-group">
+            <button type="reset" class="col-6 btn btn-outline-danger">reset</button>
+            <button type="submit" class="col-6 btn btn-outline-success">submit</button>
+          </div>
+          <div class="col-12 mt-3 mb-1 text-center">
+            <a href="index.html" class="btn btn-sm btn-outline-secondary">click me to back to the mainpage</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
